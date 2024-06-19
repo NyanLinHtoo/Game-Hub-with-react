@@ -1,4 +1,5 @@
 import { Game } from "../hooks/useGames";
+import getCroppedImageUrl from "../services/image-url";
 import CriticScores from "./CriticScores";
 import PlatformIconLists from "./PlatformIconLists";
 
@@ -9,7 +10,7 @@ interface Props {
 const GameCards = ({ game }: Props) => {
   return (
     <div className="bg-slate-400 rounded-xl overflow-auto">
-      <img src={game.background_image} alt={game.name} />
+      <img src={getCroppedImageUrl(game.background_image)} alt={game.name} />
       <p className="text-2xl font-medium dark:text-white p-4">{game.name}</p>
       <div className="flex justify-between">
         <PlatformIconLists
