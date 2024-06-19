@@ -7,7 +7,6 @@ const NavBar = () => {
     <div className="flex flex-row justify-between ">
       <div className="flex flex-row items-center">
         <img src={logo} alt="logo" className="w-16 ml-2" />
-        <span>Nav Bar</span>
       </div>
       <div className="flex flex-row items-center">
         <ModeSwitch />

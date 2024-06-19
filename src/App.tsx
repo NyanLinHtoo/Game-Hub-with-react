@@ -7,7 +7,7 @@ const App = () => {
       <div className="dark:bg-slate-700">
         <NavBar />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 dark:bg-slate-700">
+      <div className="grid grid-flow-col dark:bg-slate-700">
         <div className="hidden lg:block ">Aside</div>
         <div className=" ">
           <GameGrid />
