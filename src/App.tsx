@@ -2,13 +2,13 @@ import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
-    <div className="">
-      <div className="">
+    <div className="dark:bg-slate-700 dark:text-white">
+      <div className="dark:bg-slate-700">
         <NavBar />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className=" bg-slate-500 hidden lg:block">Aside</div>
-        <div className=" bg-gray-300">main</div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 dark:bg-slate-700">
+        <div className="hidden lg:block ">Aside</div>
+        <div className=" ">main</div>
       </div>
     </div>
   );
