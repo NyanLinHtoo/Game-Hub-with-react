@@ -1,4 +1,5 @@
 import { Game } from "../hooks/useGames";
+import CriticScores from "./CriticScores";
 import PlatformIconLists from "./PlatformIconLists";
 
 interface Props {
@@ -10,9 +11,12 @@ const GameCards = ({ game }: Props) => {
     <div className="bg-slate-400 rounded-xl overflow-auto">
       <img src={game.background_image} alt={game.name} />
       <p className="text-2xl font-medium dark:text-white p-4">{game.name}</p>
-      <PlatformIconLists
-        platForms={game.parent_platforms.map((p) => p.platform)}
-      />
+      <div className="flex justify-between">
+        <PlatformIconLists
+          platForms={game.parent_platforms.map((p) => p.platform)}
+        />
+        <CriticScores score={game.metacritic} />
+      </div>
     </div>
   );
 };
