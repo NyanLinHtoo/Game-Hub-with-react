@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 const App = () => {
   return (
     <div className="">
-      <div className="bg-green-300">
+      <div className="">
         <NavBar />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2">
