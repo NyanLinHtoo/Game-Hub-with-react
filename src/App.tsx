@@ -1,3 +1,4 @@
+import GameGrid from "./components/GameGrid";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -8,7 +9,9 @@ const App = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 dark:bg-slate-700">
         <div className="hidden lg:block ">Aside</div>
-        <div className=" ">main</div>
+        <div className=" ">
+          <GameGrid />
+        </div>
       </div>
     </div>
   );
