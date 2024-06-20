@@ -4,9 +4,10 @@ import Platform from "../../hooks/usePlatform";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
 }
 
-const PlatformSelector = ({ onSelectPlatform }: Props) => {
+const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { data, errors } = usePlatform();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -37,7 +38,7 @@ const PlatformSelector = ({ onSelectPlatform }: Props) => {
         onClick={() => setIsOpen(!isOpen)}
         className="text-white bg-slate-700 hover:bg-slate-800 font-medium rounded-lg text-lg px-8 py-2.5 text-center inline-flex items-center m-3"
         type="button">
-        Platforms
+        {selectedPlatform?.name || "Platforms"}
         <svg
           className="w-2.5 h-2.5 ms-3"
           aria-hidden="true"

@@ -26,6 +26,7 @@ const App = () => {
         </div>
         <div className=" ">
           <PlatformSelector
+            selectedPlatform={selectedPlatform}
             onSelectPlatform={(platform) => setSelectedPlatform(platform)}
           />
           <GameGrid
