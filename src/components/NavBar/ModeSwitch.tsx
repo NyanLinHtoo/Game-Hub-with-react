@@ -1,4 +1,4 @@
-import useModes from "../hooks/useMode";
+import useModes from "../../hooks/useMode";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
 const ModeSwitch = () => {
@@ -9,7 +9,7 @@ const ModeSwitch = () => {
   };
 
   return (
-    <button onClick={handleToggle} className="mr-6">
+    <button onClick={handleToggle} className="mr-6 h-[64px]">
       {!isDarkMode && <IoSunny />}
       {isDarkMode && <IoMoon />}
     </button>

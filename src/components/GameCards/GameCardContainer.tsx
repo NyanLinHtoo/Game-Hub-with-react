@@ -4,9 +4,7 @@ interface Props {
 
 const GameCardContainer = ({ children }: Props) => {
   return (
-    <div className="bg-slate-400 rounded-xl overflow-auto w-[300px]">
-      {children}
-    </div>
+    <div className="bg-slate-400 rounded-xl overflow-auto">{children}</div>
   );
 };
 

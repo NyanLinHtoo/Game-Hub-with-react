@@ -1,6 +1,6 @@
-import GameGrid from "./components/GameGrid";
-import GenreList from "./components/GenreList";
-import NavBar from "./components/NavBar";
+import GameGrid from "./components/GameCards/GameGrid";
+import GenreList from "./components/Genre/GenreList";
+import NavBar from "./components/NavBar/NavBar";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
         <NavBar />
       </div>
       <div className="grid grid-flow-col dark:bg-slate-700">
-        <div className="hidden lg:block ">
+        <div className="hidden lg:block px-5 lg:w-[200px]">
           <GenreList />
         </div>
         <div className=" ">

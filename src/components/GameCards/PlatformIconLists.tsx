@@ -6,7 +6,7 @@ import {
   FaWindows,
   FaXbox,
 } from "react-icons/fa";
-import { Platform } from "../hooks/useGames";
+import { Platform } from "../../hooks/useGames";
 import { SiNintendoswitch } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -27,14 +27,14 @@ const PlatformIconLists = ({ platForms }: Props) => {
   };
 
   return (
-    <div>
+    <div className="pl-2">
       {platForms.map((platform) => {
         const IconComponent = platformIcons[platform.slug];
         // Render the icon if it exists in the mapping
         return IconComponent ? (
           <span
             key={platform.id}
-            className="inline-block pl-5 pb-5 text-gray-800 text-lg">
+            className="inline-block pl-2 pb-3  text-gray-800 text-sm">
             <IconComponent />
           </span>
         ) : null;
