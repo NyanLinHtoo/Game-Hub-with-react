@@ -1,7 +1,7 @@
 import { Game } from "../../hooks/useGames";
 import getCroppedImageUrl from "../../services/image-url";
 import CriticScores from "./CriticScores";
-import PlatformIconLists from "./PlatformIconLists";
+import PlatformIconLists from "../Platform/PlatformIconLists";
 
 interface Props {
   game: Game;
