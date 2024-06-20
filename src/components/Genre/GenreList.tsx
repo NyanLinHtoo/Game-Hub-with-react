@@ -1,8 +1,11 @@
 import useGenre from "../../hooks/useGenre";
 import getCroppedImageUrl from "../../services/image-url";
+import Spinner from "../Spinner";
 
 const GenreList = () => {
-  const { data } = useGenre();
+  const { data, isLoading } = useGenre();
+
+  if (isLoading) return <Spinner />;
   return (
     <ul>
       {data.map((genre) => (
