@@ -1,8 +1,12 @@
-import useGenre from "../../hooks/useGenre";
+import useGenre, { Genre } from "../../hooks/useGenre";
 import getCroppedImageUrl from "../../services/image-url";
 import Spinner from "../Spinner";
 
-const GenreList = () => {
+interface Props {
+  onSelectGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelectGenre }: Props) => {
   const { data, isLoading } = useGenre();
 
   if (isLoading) return <Spinner />;
@@ -15,7 +19,11 @@ const GenreList = () => {
             alt={genre.name}
             className="size-8 rounded-lg"
           />
-          <p className="dark:text-white pl-3">{genre.name}</p>
+          <button
+            className="dark:text-white pl-3 hover:underline"
+            onClick={() => onSelectGenre(genre)}>
+            {genre.name}
+          </button>
         </li>
       ))}
     </ul>
