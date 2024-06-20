@@ -1,14 +1,37 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import usePlatform from "../../hooks/usePlatform";
+import Platform from "../../hooks/usePlatform";
 
-const PlatformSelector = () => {
+interface Props {
+  onSelectPlatform: (platform: Platform) => void;
+}
+
+const PlatformSelector = ({ onSelectPlatform }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { data, errors } = usePlatform();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   if (errors) return null;
 
   return (
-    <div className="relative inline-block pl-2">
+    <div className="relative inline-block pl-2" ref={dropdownRef}>
       <button
         id="dropdownDefaultButton"
         onClick={() => setIsOpen(!isOpen)}
@@ -41,6 +64,10 @@ const PlatformSelector = () => {
           aria-labelledby="dropdownDefaultButton">
           {data.map((platform) => (
             <li
+              onClick={() => {
+                onSelectPlatform(platform);
+                setIsOpen(false); // Close dropdown after selection
+              }}
               className="block px-4 py-2 rounded-lg hover:bg-gray-500 dark:hover:bg-gray-600 dark:hover:text-white"
               key={platform.id}>
               {platform.name}
