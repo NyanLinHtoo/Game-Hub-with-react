@@ -14,7 +14,10 @@ const App = () => {
       </div>
       <div className="grid grid-flow-col dark:bg-slate-700">
         <div className="hidden lg:block px-5 lg:w-[200px]">
-          <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            onSelectGenre={(genre) => setSelectedGenre(genre)}
+          />
         </div>
         <div className=" ">
           <GameGrid selectedGenre={selectedGenre} />

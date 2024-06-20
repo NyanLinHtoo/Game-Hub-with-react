@@ -4,9 +4,10 @@ import Spinner from "../Spinner";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, isLoading } = useGenre();
 
   if (isLoading) return <Spinner />;
@@ -20,7 +21,9 @@ const GenreList = ({ onSelectGenre }: Props) => {
             className="size-8 rounded-lg"
           />
           <button
-            className="dark:text-white pl-3 hover:underline"
+            className={`dark:text-white pl-3 hover:underline ${
+              selectedGenre?.id === genre.id ? "font-medium" : ""
+            }`}
             onClick={() => onSelectGenre(genre)}>
             {genre.name}
           </button>
