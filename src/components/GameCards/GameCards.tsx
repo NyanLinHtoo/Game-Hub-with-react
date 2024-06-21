@@ -15,15 +15,16 @@ const GameCards = ({ game }: Props) => {
         alt={game.name}
         className="h-56 w-full"
       />
-      <p className="text-xl font-medium dark:text-white px-4 pt-4 pb-2">
-        {game.name}
-      </p>
-      <div className="flex justify-between">
+
+      <div className="flex justify-between pt-4">
         <PlatformIconLists
           platForms={game.parent_platforms.map((p) => p.platform)}
         />
         <CriticScores score={game.metacritic} />
       </div>
+      <p className="text-2xl font-medium dark:text-white px-4 pb-4">
+        {game.name}
+      </p>
     </div>
   );
 };
