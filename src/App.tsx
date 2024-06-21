@@ -3,13 +3,14 @@ import GameGrid from "./components/GameCards/GameGrid";
 import GenreList from "./components/Genre/GenreList";
 import NavBar from "./components/NavBar/NavBar";
 import { Genre } from "./hooks/useGenre";
-import PlatformSelector from "./components/Platform/PlatformSelector";
+import PlatformSelector from "./components/Selectors/PlatformSelector";
 import Platform from "./hooks/usePlatform";
-import SortSelector from "./components/SortSelector/SortSelector";
+import SortSelector from "./components/Selectors/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 const App = () => {
@@ -35,7 +36,12 @@ const App = () => {
                 setGameQuery({ ...gameQuery, platform })
               }
             />
-            <SortSelector />
+            <SortSelector
+              sortOrder={gameQuery.sortOrder}
+              onSelectSortOrder={(sortOrder) =>
+                setGameQuery({ ...gameQuery, sortOrder })
+              }
+            />
           </div>
           <GameGrid gameQuery={gameQuery} />
         </div>

@@ -1,8 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 
-const SortSelector = () => {
+interface Props {
+  onSelectSortOrder: (sortOrder: string) => void;
+  sortOrder: string;
+}
+
+const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const sortOrders = [
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date Added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release Date" },
+    { value: "-matacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" },
+  ];
+
+  const currentSortOrder = sortOrders.find(
+    (order) => order.value === sortOrder
+  );
 
   // Close dropdown if clicked outside
   useEffect(() => {
@@ -30,7 +48,7 @@ const SortSelector = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="text-white bg-slate-700 hover:bg-slate-800 font-medium rounded-lg text-lg px-8 py-2.5 text-center inline-flex items-center m-3"
         type="button">
-        Order by: Relevance
+        Order by: {currentSortOrder?.label || "Relevance"}
         <svg
           className="w-2.5 h-2.5 ms-3"
           aria-hidden="true"
@@ -55,19 +73,17 @@ const SortSelector = () => {
         <ul
           className="py-2 text-md bg-slate-300 rounded-lg text-black-700 dark:text-gray-200"
           aria-labelledby="dropdownDefaultButton">
-          <li>Test</li>
-          <li>Test</li>
-          <li>Test</li>
-          {/* {data.map((platform) => (
+          {sortOrders.map((sortOrder) => (
             <li
               onClick={() => {
+                onSelectSortOrder(sortOrder.value);
                 setIsOpen(false); // Close dropdown after selection
               }}
               className="block px-4 py-2 rounded-lg hover:bg-gray-500 dark:hover:bg-gray-600 dark:hover:text-white"
-              key={platform.id}>
-              {platform.name}
+              key={sortOrder.value}>
+              {sortOrder.label}
             </li>
-          ))} */}
+          ))}
         </ul>
       </div>
     </div>
