@@ -46,7 +46,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
       <button
         id="dropdownDefaultButton"
         onClick={() => setIsOpen(!isOpen)}
-        className="text-white bg-slate-700 hover:bg-slate-800 font-medium rounded-lg text-lg px-8 py-2.5 text-center inline-flex items-center m-3"
+        className="text-white bg-neutral-800 font-medium rounded-lg text-lg px-8 py-2.5 text-center inline-flex items-center m-3"
         type="button">
         Order by: {currentSortOrder?.label || "Relevance"}
         <svg
@@ -71,7 +71,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
           isOpen ? "block" : "hidden"
         } bg-white divide-y divide-gray-100 rounded-lg shadow w-56 dark:bg-gray-700 absolute mt-2 ml-4`}>
         <ul
-          className="py-2 text-md bg-slate-300 rounded-lg text-black-700 dark:text-gray-200"
+          className="text-md dark:bg-white rounded-lg text-black-700 dark:text-neutral-800"
           aria-labelledby="dropdownDefaultButton">
           {sortOrders.map((sortOrder) => (
             <li
@@ -79,7 +79,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
                 onSelectSortOrder(sortOrder.value);
                 setIsOpen(false); // Close dropdown after selection
               }}
-              className="block px-4 py-2 rounded-lg hover:bg-gray-500 dark:hover:bg-gray-600 dark:hover:text-white"
+              className="block px-4 py-2 rounded-lg hover:bg-gray-300"
               key={sortOrder.value}>
               {sortOrder.label}
             </li>

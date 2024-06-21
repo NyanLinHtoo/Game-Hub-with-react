@@ -32,7 +32,7 @@ const SearchInput = ({ onSearch }: Props) => {
           ref={ref}
           type="text"
           id="default-input"
-          className="pl-12 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-2xl block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  w-full"
+          className="pl-12 bg-gray-50 border border-gray-300  text-gray-900 text-md rounded-2xl block p-2.5 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white w-full dark:focus:bg-neutral-200 dark:focus:text-black dark:hover:bg-neutral-200 dark:hover:text-black"
           placeholder="Search games..."
         />
       </div>

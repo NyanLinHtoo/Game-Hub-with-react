@@ -7,6 +7,7 @@ import PlatformSelector from "./components/Selectors/PlatformSelector";
 import Platform from "./hooks/usePlatform";
 import SortSelector from "./components/Selectors/SortSelector";
 import GameHeading from "./components/GameCards/GameHeading";
+import DisplayErrMsg from "./components/DisplayErrMsg";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -19,13 +20,14 @@ const App = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
-    <div className="h-screen dark:bg-slate-700 dark:text-white">
-      <div className="dark:bg-slate-700">
+    <div className="h-screen  dark:text-white">
+      <div className="dark:bg-neutral-950">
         <NavBar
           onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
         />
+        {/* <DisplayErrMsg /> */}
       </div>
-      <div className="grid grid-cols-6 col-auto dark:bg-slate-700">
+      <div className="grid grid-cols-6 col-auto dark:bg-neutral-950">
         <div className="hidden lg:block px-5 lg:w-[200px]">
           <GenreList
             selectedGenre={gameQuery.genre}

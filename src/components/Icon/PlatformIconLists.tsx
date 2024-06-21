@@ -34,7 +34,7 @@ const PlatformIconLists = ({ platForms }: Props) => {
         return IconComponent ? (
           <span
             key={platform.id}
-            className="inline-block pl-2 pb-2  text-gray-800 text-sm">
+            className="inline-block pl-2 pb-2  text-white text-sm">
             <IconComponent />
           </span>
         ) : null;

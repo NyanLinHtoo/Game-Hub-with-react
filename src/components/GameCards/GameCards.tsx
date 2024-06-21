@@ -22,9 +22,7 @@ const GameCards = ({ game }: Props) => {
         />
         <CriticScores score={game.metacritic} />
       </div>
-      <p className="text-2xl font-medium dark:text-white px-4 pb-4">
-        {game.name}
-      </p>
+      <p className="text-2xl font-medium text-white px-4 pb-4">{game.name}</p>
     </div>
   );
 };
