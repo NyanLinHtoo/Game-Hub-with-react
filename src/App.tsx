@@ -21,14 +21,14 @@ const App = () => {
       <div className="dark:bg-slate-700">
         <NavBar />
       </div>
-      <div className="grid grid-flow-col dark:bg-slate-700">
+      <div className="grid grid-cols-6 col-auto dark:bg-slate-700">
         <div className="hidden lg:block px-5 lg:w-[200px]">
           <GenreList
             selectedGenre={gameQuery.genre}
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
         </div>
-        <div className="">
+        <div className="lg:col-span-5 col-span-6">
           <div className="flex flex-row pl-2 mb-2">
             <PlatformSelector
               selectedPlatform={gameQuery.platform}

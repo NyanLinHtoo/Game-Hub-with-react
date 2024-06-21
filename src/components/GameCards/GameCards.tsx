@@ -10,7 +10,11 @@ interface Props {
 const GameCards = ({ game }: Props) => {
   return (
     <div className="">
-      <img src={getCroppedImageUrl(game.background_image)} alt={game.name} />
+      <img
+        src={getCroppedImageUrl(game.background_image)}
+        alt={game.name}
+        className="h-56 w-full"
+      />
       <p className="text-xl font-medium dark:text-white px-4 pt-4 pb-2">
         {game.name}
       </p>
