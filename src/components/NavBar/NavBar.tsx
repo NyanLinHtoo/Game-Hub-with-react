@@ -3,7 +3,11 @@ import SearchInput from "../SearchInput";
 
 import ModeSwitch from "./ModeSwitch";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
   return (
     // <div className="flex flex-row justify-between">
     <div className="grid grid-cols-12 items-center gap-2 px-2">
@@ -14,7 +18,7 @@ const NavBar = () => {
 
       {/* SearchInput - Center and occupy full width */}
       <div className="flex justify-center col-span-10">
-        <SearchInput />
+        <SearchInput onSearch={onSearch} />
       </div>
 
       {/* ModeSwitch - Align to the right */}

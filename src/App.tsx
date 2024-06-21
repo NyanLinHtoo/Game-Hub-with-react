@@ -6,11 +6,13 @@ import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/Selectors/PlatformSelector";
 import Platform from "./hooks/usePlatform";
 import SortSelector from "./components/Selectors/SortSelector";
+import GameHeading from "./components/GameCards/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 const App = () => {
@@ -19,7 +21,9 @@ const App = () => {
   return (
     <div className="h-screen dark:bg-slate-700 dark:text-white">
       <div className="dark:bg-slate-700">
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+        />
       </div>
       <div className="grid grid-cols-6 col-auto dark:bg-slate-700">
         <div className="hidden lg:block px-5 lg:w-[200px]">
@@ -29,19 +33,22 @@ const App = () => {
           />
         </div>
         <div className="lg:col-span-5 col-span-6">
-          <div className="flex flex-row pl-2 mb-2">
-            <PlatformSelector
-              selectedPlatform={gameQuery.platform}
-              onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
-              }
-            />
-            <SortSelector
-              sortOrder={gameQuery.sortOrder}
-              onSelectSortOrder={(sortOrder) =>
-                setGameQuery({ ...gameQuery, sortOrder })
-              }
-            />
+          <div className="pl-2">
+            <GameHeading gameQuery={gameQuery} />
+            <div className="flex flex-row mb-2">
+              <PlatformSelector
+                selectedPlatform={gameQuery.platform}
+                onSelectPlatform={(platform) =>
+                  setGameQuery({ ...gameQuery, platform })
+                }
+              />
+              <SortSelector
+                sortOrder={gameQuery.sortOrder}
+                onSelectSortOrder={(sortOrder) =>
+                  setGameQuery({ ...gameQuery, sortOrder })
+                }
+              />
+            </div>
           </div>
           <GameGrid gameQuery={gameQuery} />
         </div>
