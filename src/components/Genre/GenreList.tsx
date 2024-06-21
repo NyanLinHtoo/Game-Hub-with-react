@@ -12,24 +12,27 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
   if (isLoading) return <Spinner />;
   return (
-    <ul>
-      {data.map((genre) => (
-        <li className="flex flex-row py-1 items-center" key={genre.id}>
-          <img
-            src={getCroppedImageUrl(genre.image_background)}
-            alt={genre.name}
-            className="size-8 rounded-lg"
-          />
-          <button
-            className={`dark:text-white pl-3 hover:underline ${
-              selectedGenre?.id === genre.id ? "font-medium" : ""
-            }`}
-            onClick={() => onSelectGenre(genre)}>
-            {genre.name}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h1 className="text-xl my-3">Genres</h1>
+      <ul>
+        {data.map((genre) => (
+          <li className="flex flex-row py-1 items-center" key={genre.id}>
+            <img
+              src={getCroppedImageUrl(genre.image_background)}
+              alt={genre.name}
+              className="size-8 rounded-lg object-cover"
+            />
+            <button
+              className={`dark:text-white pl-3 hover:underline text-left ${
+                selectedGenre?.id === genre.id ? "font-medium" : ""
+              }`}
+              onClick={() => onSelectGenre(genre)}>
+              {genre.name}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
