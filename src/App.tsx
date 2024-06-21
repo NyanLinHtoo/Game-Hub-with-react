@@ -7,7 +7,7 @@ import PlatformSelector from "./components/Selectors/PlatformSelector";
 import Platform from "./hooks/usePlatform";
 import SortSelector from "./components/Selectors/SortSelector";
 import GameHeading from "./components/GameCards/GameHeading";
-import DisplayErrMsg from "./components/DisplayErrMsg";
+import { Toaster } from "sonner";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -25,7 +25,6 @@ const App = () => {
         <NavBar
           onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
         />
-        {/* <DisplayErrMsg /> */}
       </div>
       <div className="grid grid-cols-6 col-auto dark:bg-neutral-950">
         <div className="hidden lg:block px-5 lg:w-[200px]">
@@ -55,6 +54,7 @@ const App = () => {
           <GameGrid gameQuery={gameQuery} />
         </div>
       </div>
+      <Toaster position="top-center" richColors />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import usePlatform from "../../hooks/usePlatform";
 import Platform from "../../hooks/usePlatform";
+import { toast } from "sonner";
+import { displayErrMsg } from "../../DisplayErrMsg/DisplayErrMsg";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
@@ -67,6 +69,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
             <li
               onClick={() => {
                 onSelectPlatform(platform);
+                toast.warning(displayErrMsg);
                 setIsOpen(false); // Close dropdown after selection
               }}
               className="block px-4 py-2 rounded-lg hover:bg-gray-300 "

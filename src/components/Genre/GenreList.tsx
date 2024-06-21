@@ -1,6 +1,9 @@
+import { toast } from "sonner";
 import useGenre, { Genre } from "../../hooks/useGenre";
 import getCroppedImageUrl from "../../services/image-url";
 import Spinner from "../Spinner";
+
+import { displayErrMsg } from "../../DisplayErrMsg/DisplayErrMsg";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
@@ -26,7 +29,10 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               className={`dark:text-white pl-3 hover:underline text-left ${
                 selectedGenre?.id === genre.id ? "font-medium" : ""
               }`}
-              onClick={() => onSelectGenre(genre)}>
+              onClick={() => {
+                onSelectGenre(genre);
+                toast.warning(displayErrMsg);
+              }}>
               {genre.name}
             </button>
           </li>

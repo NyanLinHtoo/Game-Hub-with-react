@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
+import { displayErrMsg } from "../../DisplayErrMsg/DisplayErrMsg";
 
 interface Props {
   onSelectSortOrder: (sortOrder: string) => void;
@@ -77,6 +79,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
             <li
               onClick={() => {
                 onSelectSortOrder(sortOrder.value);
+                toast.warning(displayErrMsg);
                 setIsOpen(false); // Close dropdown after selection
               }}
               className="block px-4 py-2 rounded-lg hover:bg-gray-300"
