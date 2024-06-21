@@ -17,7 +17,7 @@ const App = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
-    <div className="dark:bg-slate-700 dark:text-white">
+    <div className="h-screen dark:bg-slate-700 dark:text-white">
       <div className="dark:bg-slate-700">
         <NavBar />
       </div>
