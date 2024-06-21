@@ -32,7 +32,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   if (errors) return null;
 
   return (
-    <div className="relative inline-block pl-2" ref={dropdownRef}>
+    <div ref={dropdownRef}>
       <button
         id="dropdownDefaultButton"
         onClick={() => setIsOpen(!isOpen)}
